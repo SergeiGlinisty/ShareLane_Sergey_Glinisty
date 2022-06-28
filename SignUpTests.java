@@ -39,14 +39,14 @@ public class SignUpTests {
 
      }
      @Test
-    public void doNotEnterZipCodeTestNegative()  { //когда мы ничего не вводим в поле 'zip code'
+    public void doNotEnterZipCodeTestNegative() throws InterruptedException { //когда мы ничего не вводим в поле 'zip code'
 
         WebElement zipCodeInput = driver.findElement(By.name("zip_code"));
         zipCodeInput.sendKeys("");
         WebElement continueButton = driver.findElement(By.cssSelector("[value='Continue']"));
         continueButton.click();
          Assert.assertTrue(driver.findElement(By.name("zip_code")).isDisplayed(), "zip code should be displayed");
-
+         Thread.sleep(3000);
         // Why did the test fail when I added such a check?
          //Assert.assertFalse(driver.findElement(By.name("last_name")).isDisplayed(), "Last name input shouldn't be displayed");
     }
