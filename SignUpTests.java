@@ -51,14 +51,14 @@ public class SignUpTests {
          //Assert.assertFalse(driver.findElement(By.name("last_name")).isDisplayed(), "Last name input shouldn't be displayed");
     }
 @Test
-    public void enterLettersZipCodeTestNegative() {   //когда мы вводим буквы в поле 'zip code'
+    public void enterLettersZipCodeTestNegative() throws InterruptedException{   //когда мы вводим буквы в поле 'zip code'
 
         WebElement zipCodeInput = driver.findElement(By.name("zip_code"));
         zipCodeInput.sendKeys("asdfh");
         WebElement continueButton = driver.findElement(By.cssSelector("[value='Continue']"));
         continueButton.click();
         Assert.assertTrue(driver.findElement(By.name("zip_code")).isDisplayed(), "zip code should be displayed");
-
+    Thread.sleep(3000);
     }
 @Test
     public void enterLettersAndNumbersZipCodeTestNegative() { //когда мы вводим буквы и цифры в поле 'zip code'
